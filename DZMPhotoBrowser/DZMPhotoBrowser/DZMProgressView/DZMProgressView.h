@@ -6,8 +6,6 @@
 //  Copyright © 2016年 DZM. All rights reserved.
 //
 
-/* 下载地址: https://github.com/dengzemiao/DZMProgressView-OC */
-
 // 类型
 typedef enum {
     DZMProgressTypeAnnular = 0,
