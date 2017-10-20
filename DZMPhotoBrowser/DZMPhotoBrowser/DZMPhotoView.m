@@ -485,8 +485,11 @@
     }else{
         
         [UIView animateWithDuration:DZMAnimateDuration animations:^{
-            
-            weakSelf.imageView.transform = CGAffineTransformMakeScale(1.2f, 1.2f);
+         
+            if (weakSelf.scrollView.zoomScale < 1.8f) {
+                
+                weakSelf.imageView.transform = CGAffineTransformMakeScale(1.8f, 1.8f);
+            }
             
             weakSelf.imageView.alpha = 0;
             
