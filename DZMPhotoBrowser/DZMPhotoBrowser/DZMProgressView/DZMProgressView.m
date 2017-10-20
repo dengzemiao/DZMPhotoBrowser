@@ -47,7 +47,6 @@
     _percentageTextColor = [UIColor colorWithCGColor:CGColorCreateCopyWithAlpha(schemeColor.CGColor, 1)];
 }
 
-
 @end
 
 
@@ -232,6 +231,5 @@
     
     [self setNeedsDisplay];
 }
-
 
 @end
