@@ -110,7 +110,7 @@
     failButton.translatesAutoresizingMaskIntoConstraints = NO;
     failButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     failButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [failButton setTitle:@"重新加载" forState:UIControlStateNormal];
+    [failButton setTitle:NSLocalizedString(@"HCBurron4", nil) forState:UIControlStateNormal];
     [failButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     failButton.layer.cornerRadius = 5;
     failButton.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -182,6 +182,15 @@
 - (void)saveButtonSelected:(BOOL)isSelected {
     
     self.saveButton.selected = isSelected;
+    
+    if (isSelected) {
+        
+        self.saveButton.layer.borderColor = [UIColor grayColor].CGColor;
+        
+    }else{
+        
+        self.saveButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    }
 }
 
 - (void)clickSave

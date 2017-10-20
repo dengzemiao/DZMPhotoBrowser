@@ -11,8 +11,8 @@
 @implementation DZMProgressAppearance
 
 // 获取单利对象
-+ (DZMProgressAppearance *)progressAppearance
-{
++ (DZMProgressAppearance *)progressAppearance {
+    
     static DZMProgressAppearance *progressAppearance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
@@ -22,23 +22,24 @@
 }
 
 // 单个创建
-- (id)init
-{
+- (id)init {
+    
     self = [super init];
     
-    if (self)
-    {
+    if (self) {
+        
         self.schemeColor = [UIColor whiteColor];
         self.percentageTextFont = [UIFont systemFontOfSize:10];
         self.percentageTextOffset = CGPointZero;
         self.type = DZMProgressTypeCircle;
         self.showPercentage = YES;
     }
+    
     return self;
 }
 
-- (void)setSchemeColor:(UIColor *)schemeColor
-{
+- (void)setSchemeColor:(UIColor *)schemeColor {
+    
     _schemeColor = schemeColor;
 
     _progressTintColor = [UIColor colorWithCGColor:CGColorCreateCopyWithAlpha(schemeColor.CGColor, 1)];
@@ -52,50 +53,54 @@
 
 @implementation DZMProgressView
 
-- (DZMProgressAppearance *)progressAppearance
-{
+- (DZMProgressAppearance *)progressAppearance {
+    
     if (!_progressAppearance) {
+        
         _progressAppearance = [DZMProgressAppearance progressAppearance];
     }
+    
     return _progressAppearance;
 }
 
-- (id)init
-{
+- (id)init {
+    
     return [self initWithFrame:CGRectMake(0.f, 0.f, 40.f, 40.f)];
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
+    
     self = [super initWithFrame:frame];
-    if (self)
-    {
+    
+    if (self) {
+        
         self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
         self.progress = 0.f;
-        
+
         [self registerForKVO];
     }
+    
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    
     [self unregisterFromKVO];
 }
 
 
 #pragma mark - Drawing
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
+    
     CGRect allRect = self.bounds;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     DZMProgressAppearance *appearance = self.progressAppearance;
     
-    if (appearance.type == DZMProgressTypeAnnular)
-    {
+    if (appearance.type == DZMProgressTypeAnnular) {
+        
         CGFloat lineWidth = 5.f;
         UIBezierPath *processBackgroundPath = [UIBezierPath bezierPath];
         processBackgroundPath.lineWidth = lineWidth;
@@ -118,9 +123,9 @@
         
         if (appearance.showPercentage)
             [self drawTextInContext:context];
-    }
-    else if (appearance.type == DZMProgressTypeCircle)
-    {
+        
+    } else if (appearance.type == DZMProgressTypeCircle) {
+        
         CGColorRef colorBackAlpha = CGColorCreateCopyWithAlpha(appearance.backgroundTintColor. CGColor, 0.05f);
         CGColorRef colorProgressAlpha = CGColorCreateCopyWithAlpha(appearance.progressTintColor. CGColor, 0.2f);
         
@@ -151,9 +156,9 @@
         
         if (appearance.showPercentage)
             [self drawTextInContext:context];
-    }
-    else
-    {
+        
+    } else {
+        
         CGRect circleRect = CGRectInset(allRect, 2.0f, 2.0f);
         CGColorRef colorBackAlpha = CGColorCreateCopyWithAlpha(appearance.backgroundTintColor. CGColor, 0.1f);
         
@@ -176,8 +181,8 @@
     }
 }
 
-- (void)drawTextInContext:(CGContextRef)context
-{
+- (void)drawTextInContext:(CGContextRef)context {
+    
     DZMProgressAppearance *appearance = self.progressAppearance;
     
     CGRect allRect = self.bounds;
@@ -199,32 +204,32 @@
 #pragma mark - KVO
 
 
-- (void)registerForKVO
-{
-    for (NSString *keyPath in [self observableKeypaths])
-    {
+- (void)registerForKVO {
+    
+    for (NSString *keyPath in [self observableKeypaths]) {
+        
         [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
     }
 }
 
 
-- (void)unregisterFromKVO
-{
-    for (NSString *keyPath in [self observableKeypaths])
-    {
+- (void)unregisterFromKVO {
+    
+    for (NSString *keyPath in [self observableKeypaths]) {
+        
         [self removeObserver:self forKeyPath:keyPath];
     }
 }
 
 
-- (NSArray *)observableKeypaths
-{
+- (NSArray *)observableKeypaths {
+    
     return [NSArray arrayWithObjects:@"progressAppearance", @"progress", nil];
 }
 
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
     [self setNeedsDisplay];
 }
 
