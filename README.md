@@ -13,9 +13,9 @@
     
     无内存泄漏
     
-    该框架是基于 SDWebImag e实现的,但是仅在下载图片使用 SDWebImage 的方法。
+    该框架是基于 SDWebImage 实现的,但是仅在下载图片使用 SDWebImage 的方法。
     
-    如果想换成 SDWebImage 以外的框架也是很简单的,删掉SDWeb,然后在 DZMPhotoView.m 中的图片下载处换成别的下载方式即可
+    如果想换成 SDWebImage 以外的框架也是很简单的,删掉 SDWebImage ,然后在 DZMPhotoView.m 中的图片下载处换成别的下载方式即可
     
 ***
 #### DZMPhotoBrowser 使用:
