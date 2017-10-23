@@ -337,11 +337,20 @@
         
         CGSize imageSize = self.imageView.image.size;
         
-        if (imageSize.width > viewSize.width) {
+        if (imageSize.width > viewSize.width || imageSize.height > viewSize.height) {
             
-            CGFloat h = imageSize.height / (imageSize.width / viewSize.width);
+            CGFloat imageScale = imageSize.width / imageSize.height;
             
-            imageSize = CGSizeMake(viewSize.width, h);
+            CGFloat screenScale = viewSize.width / viewSize.height;
+            
+            if (screenScale > imageScale) {
+               
+                imageSize = CGSizeMake(viewSize.height * imageSize.width / imageSize.height, viewSize.height);
+                
+            }else{
+                
+                imageSize = CGSizeMake(viewSize.width, viewSize.width * imageSize.height / imageSize.width);
+            }
         }
         
         self.imageView.frame = CGRectMake((viewSize.width - imageSize.width)/2, (viewSize.height - imageSize.height)/2, imageSize.width, imageSize.height);
