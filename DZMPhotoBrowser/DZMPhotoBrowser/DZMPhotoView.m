@@ -337,23 +337,16 @@
         
         CGSize imageSize = self.imageView.image.size;
         
-        if (imageSize.width > viewSize.width || imageSize.height > viewSize.height) {
+        if (imageSize.width > viewSize.width) {
             
-            if (imageSize.width > imageSize.height) {
-                
-                CGFloat h = imageSize.height / (imageSize.width / viewSize.width);
-                
-                imageSize = CGSizeMake(viewSize.width, h);
-                
-            }else{
-                
-                CGFloat w = imageSize.width / (imageSize.height / viewSize.height);
-                
-                imageSize = CGSizeMake(w, viewSize.height);
-            }
+            CGFloat h = imageSize.height / (imageSize.width / viewSize.width);
+            
+            imageSize = CGSizeMake(viewSize.width, h);
         }
         
         self.imageView.frame = CGRectMake((viewSize.width - imageSize.width)/2, (viewSize.height - imageSize.height)/2, imageSize.width, imageSize.height);
+        
+        self.scrollView.contentSize = imageSize;
         
         [self scrollViewDidZoom:self.scrollView];
     }

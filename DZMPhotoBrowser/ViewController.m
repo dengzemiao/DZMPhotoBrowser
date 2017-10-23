@@ -42,7 +42,9 @@
      */
     
     // 数据源 为了效果 里面放了几张会加载失败的图
-    self.dataArray = @[@"http://d.hiphotos.baidu.com/image/pic/item/5fdf8db1cb1349540a4949a65f4e9258d0094a98.jpg",
+    self.dataArray = @[@"http://pic3.maimengjun.com/405439891fc33b05c20f3d7c6cf983ca.png",
+                       @"http://pic3.maimengjun.com/87a095e3ca2d79cefe27d645309b5f97.jpg",
+                       @"http://d.hiphotos.baidu.com/image/pic/item/5fdf8db1cb1349540a4949a65f4e9258d0094a98.jpg",
                        @"http://f.hiphotos.baidu.com/image/pic/item/64380cd7912397dd4417d0c45082b2b7d1a28780.jpg",
                        @"http://f.hiphotos.baidu.com/image/pic/item/962bd40735fae6cde68fa24605b30f2442a70fd9.jpg",
                        @"http://attach.bbs.miui.com/forum/201402/21/120044k1dgtgc4dg2dm5tw.jpg",
