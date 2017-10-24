@@ -74,7 +74,6 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.userInteractionEnabled = YES;
     imageView.hidden = YES;
-    imageView.backgroundColor = [UIColor redColor];
     [scrollView addSubview:imageView];
     self.imageView = imageView;
     
