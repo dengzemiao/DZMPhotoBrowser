@@ -436,13 +436,13 @@
 
 - (void)doubleTap:(UITapGestureRecognizer *)tap
 {
-    CGPoint point = [tap locationInView:self.imageView];
-    
     if (self.scrollView.zoomScale != self.scrollView.minimumZoomScale) {
         
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
         
     }else{
+        
+        CGPoint point = [tap locationInView:self.imageView];
         
         [self.scrollView zoomToRect:CGRectMake(point.x, point.y, 1, 1) animated:YES];
     }
