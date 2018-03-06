@@ -33,7 +33,7 @@
 @interface DZMPhotoPageController : UIPageViewController
 
 /**
- 初始化(外部接收使用弱引用)
+ 初始化(外部接收使用弱引用或不接收)
 
  @param photos 模型数组
  @param selectIndex 初始显示
