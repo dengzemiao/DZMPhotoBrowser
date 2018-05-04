@@ -88,7 +88,6 @@
     [self unregisterFromKVO];
 }
 
-
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect {
@@ -199,9 +198,7 @@
     [text drawAtPoint:CGPointMake(x - textSize.width / 2.0, y)  withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:appearance.percentageTextColor}];
 }
 
-
 #pragma mark - KVO
-
 
 - (void)registerForKVO {
     
@@ -211,7 +208,6 @@
     }
 }
 
-
 - (void)unregisterFromKVO {
     
     for (NSString *keyPath in [self observableKeypaths]) {
@@ -220,12 +216,10 @@
     }
 }
 
-
 - (NSArray *)observableKeypaths {
     
     return [NSArray arrayWithObjects:@"progressAppearance", @"progress", nil];
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
