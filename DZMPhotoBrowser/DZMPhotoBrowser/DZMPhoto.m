@@ -14,6 +14,16 @@
 
 @implementation DZMPhoto
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        
+        self.frame = CGRectZero;
+    }
+    
+    return self;
+}
+
 - (void)dealloc
 {
     self.imageView = nil;

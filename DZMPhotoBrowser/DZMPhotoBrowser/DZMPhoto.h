@@ -12,16 +12,10 @@
 @interface DZMPhoto : NSObject
 
 /*
- url有值:(网络图片展示使用)
- 当url有值时则下载进行使用
- 默认图片则使用 imageView.image
- 没有传 imageView 则等待下载完成在显示
+ 组合使用的情况下:
+ 1.如果 imageView 没有值的情况下, url有值, image 则会被当做 placeholderImage 使用。
+ 2.如果 imageView 没有值的情况下, 需要展示跟隐藏动画, 可使用 frame 做为动画坐标。
  
- image有值:(本地图片展示使用)
- 
- 注意: url image 二选一即可 如果都有值则使用url
- 
- 在DZMPhoto数组中可以存在两种数据模型
  */
 
 /// 图片URL (网络图片展示使用)
@@ -30,8 +24,11 @@
 /// 图片 (本地图片展示使用)
 @property (nonatomic, strong, nullable) UIImage *image;
 
-/// 图片来源控件 有值则会带有返回动画
+/// 图片来源控件,有值则会带有动画 【(坐标 || placeholderImage) 优先使用改字段】
 @property (nonatomic, weak, nullable) UIImageView *imageView;
+
+/// 图片来源位置(需要屏幕上位置,不是单纯的控件Frame),有值则会带有动画 默认 CGRectZero
+@property (nonatomic, assign) CGRect frame;
 
 
 

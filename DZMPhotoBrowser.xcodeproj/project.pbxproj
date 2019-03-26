@@ -358,8 +358,8 @@
 				TargetAttributes = {
 					AF500DE91EE64B100042C677 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 2PPP498VY6;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = G2L9GJ54GT;
+						ProvisioningStyle = Automatic;
 					};
 					AF500E021EE64B100042C677 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -599,14 +599,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2PPP498VY6;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G2L9GJ54GT;
 				INFOPLIST_FILE = DZMPhotoBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanjue.appTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netjoy.appTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b6aab570-09d2-4d44-91c5-6a0c762c988c";
-				PROVISIONING_PROFILE_SPECIFIER = HJ_APPTest_Dev_P;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -614,14 +616,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2PPP498VY6;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G2L9GJ54GT;
 				INFOPLIST_FILE = DZMPhotoBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanjue.appTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netjoy.appTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b6aab570-09d2-4d44-91c5-6a0c762c988c";
-				PROVISIONING_PROFILE_SPECIFIER = HJ_APPTest_Dev_P;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

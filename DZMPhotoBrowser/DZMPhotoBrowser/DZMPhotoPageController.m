@@ -66,10 +66,7 @@
             // 首个显示
             DZMPhoto *photo = photos[selectIndex];
             
-            if (photo.imageView.image) {
-                
-                [photo setValue:@(YES) forKey:@"isFirst"];
-            }
+            [photo setValue:@(YES) forKey:@"isFirst"];
         }
         
         _photos = photos;

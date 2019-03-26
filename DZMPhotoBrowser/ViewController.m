@@ -119,7 +119,8 @@
         [photos addObject:photo];
     }
     
-    photos[indexPath.item].imageView = cell.imageView;
+//    photos[indexPath.item].imageView = cell.imageView;
+    photos[indexPath.item].frame = [cell.imageView convertRect:cell.imageView.bounds toView:self.view];
     
     DZMPhotoBrowser *browser = [[DZMPhotoBrowser alloc] init];
     browser.delegate = self;
@@ -142,14 +143,15 @@
 - (void)photoBrowser:(DZMPhotoBrowser *)photoBrowser willHiddenPhoto:(DZMPhoto *)photo
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:photo.index inSection:0];
-    
+
     TempCollectionViewCell *cell = (TempCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    
+
     if (cell) {
-        
-        photo.imageView = cell.imageView;
+
+//        photo.imageView = cell.imageView;
+        photo.frame = [cell.imageView convertRect:cell.imageView.bounds toView:self.view];
     }
-    
+
     NSLog(@"%ld",(long)photo.index);
 }
 

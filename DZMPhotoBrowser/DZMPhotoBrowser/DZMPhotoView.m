@@ -267,12 +267,16 @@
             
             self.progressView.progress = 0;
             
+            UIImage *placeholderImage = photo.imageView.image;
+            
+            if (!placeholderImage) { placeholderImage = photo.image; }
+            
             // 如果没有刷新进度条可以打印线程是否在主线程 progress 这个block有的版本是异步有的版本是主线程
             [[SDWebImageManager sharedManager] diskImageExistsForURL:photo.url completion:^(BOOL isInCache) {
                 
                 weakSelf.progressView.hidden = isInCache;
                
-                [weakSelf.imageView sd_setImageWithURL:photo.url placeholderImage:photo.imageView.image options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                [weakSelf.imageView sd_setImageWithURL:photo.url placeholderImage:placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                    
                     dispatch_sync(dispatch_get_main_queue(), ^{
                         
@@ -404,9 +408,13 @@
             
             __weak DZMPhotoView *weakSelf = self;
             
-            if (self.photo.imageView && self.photo.imageView.image) {
+            if (self.photo.imageView || !CGRectEqualToRect(self.photo.frame, CGRectZero)) {
                 
-                CGRect frame = [self convertRect:self.photo.imageView];
+                CGRect frame = CGRectZero;
+                
+                if (self.photo.imageView) { frame = [self convertRect:self.photo.imageView];
+                    
+                }else{ frame = self.photo.frame; }
                 
                 self.imageView.frame = frame;
                 
@@ -470,9 +478,13 @@
         weakSelf.saveButton.alpha = 0;
     }];
     
-    if (self.photo.imageView) {
+    if (self.photo.imageView || !CGRectEqualToRect(self.photo.frame, CGRectZero)) {
         
-        CGRect frame = [self convertRect:self.photo.imageView];
+        CGRect frame = CGRectZero;
+        
+        if (self.photo.imageView) { frame = [self convertRect:self.photo.imageView];
+            
+        }else{ frame = self.photo.frame; }
         
         [UIView animateWithDuration:DZMAnimateDuration animations:^{
 
