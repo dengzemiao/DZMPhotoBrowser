@@ -66,6 +66,9 @@ browser.initSelectIndex = 0;
 
 // 展示
 [browser show];
+
+// 展示到指定控制器
+// [browser show:self];
 ```
 #### DZMPhoto 介绍:
 ```Objective-C

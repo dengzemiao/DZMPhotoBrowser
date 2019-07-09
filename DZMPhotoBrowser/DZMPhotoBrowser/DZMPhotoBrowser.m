@@ -59,6 +59,28 @@
     }
 }
 
+/// 展示
+- (void)show:(UIViewController *)viewController
+{
+    // 没有指定显示控制器
+    if (!viewController) {
+        
+        [self show];
+        
+    }else{
+        
+        // 整理数据
+        if (self.photos.count != 0) {
+            
+            // 隐藏状态栏
+            [[UIApplication sharedApplication] setStatusBarHidden:YES];
+            
+            // DZMPhotoPageController
+            [DZMPhotoPageController pageController:viewController photos:self.photos selectIndex:self.initSelectIndex delegate:self];
+        }
+    }
+}
+
 #pragma mark - DZMPhotoPageControllerDelegate
 
 - (void)pageController:(DZMPhotoPageController *)pageController savePhoto:(DZMPhoto *)photo error:(NSError *)error

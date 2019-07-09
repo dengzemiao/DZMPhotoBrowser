@@ -45,4 +45,7 @@
 /// 展示
 - (void)show;
 
+/// 展示
+- (void)show:(UIViewController * _Nullable)viewController;
+
 @end

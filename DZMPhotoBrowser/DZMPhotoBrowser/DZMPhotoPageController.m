@@ -28,10 +28,7 @@
 @implementation DZMPhotoPageController
 
 /// 初始化
-+ (instancetype _Nonnull)pageController:(NSArray<DZMPhoto *> * _Nonnull)photos selectIndex:(NSInteger)selectIndex delegate:(id<DZMPhotoPageControllerDelegate> _Nullable)delegate {
-    
-    // 父控件
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
++ (instancetype _Nonnull)pageController:(UIViewController * _Nonnull)viewController photos:(NSArray<DZMPhoto *> * _Nonnull)photos selectIndex:(NSInteger)selectIndex delegate:(id<DZMPhotoPageControllerDelegate> _Nullable)delegate {
     
     // 配置
     NSDictionary *options = @{UIPageViewControllerOptionInterPageSpacingKey: @(10)};
@@ -40,10 +37,20 @@
     DZMPhotoPageController *pageController =  [[DZMPhotoPageController alloc] initWithPhotos:photos selectIndex:selectIndex transitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options delegate:delegate];
     
     // 显示
-    [window.rootViewController addChildViewController:pageController];
-    [window.rootViewController.view addSubview:pageController.view];
+    [viewController addChildViewController:pageController];
+    [viewController.view addSubview:pageController.view];
     
     return pageController;
+}
+
+/// 初始化
++ (instancetype _Nonnull)pageController:(NSArray<DZMPhoto *> * _Nonnull)photos selectIndex:(NSInteger)selectIndex delegate:(id<DZMPhotoPageControllerDelegate> _Nullable)delegate {
+    
+    // 父控件
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+    // 初始化
+    return [DZMPhotoPageController pageController:window.rootViewController photos:photos selectIndex:selectIndex delegate:delegate];
 }
 
 /// 初始化

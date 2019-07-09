@@ -127,6 +127,7 @@
     browser.photos = photos;
     browser.initSelectIndex = indexPath.item;
     [browser show];
+    // [browser show:self];
 }
 
 #pragma mark - DZMPhotoBrowserDelegate

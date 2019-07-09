@@ -34,6 +34,15 @@
 
 /**
  初始化(外部接收使用弱引用或不接收)
+ 
+ @param viewController 显示到指定控制器
+ @param photos 模型数组
+ @param selectIndex 初始显示
+ */
++ (instancetype _Nonnull)pageController:(UIViewController * _Nonnull)viewController photos:(NSArray<DZMPhoto *> * _Nonnull)photos selectIndex:(NSInteger)selectIndex delegate:(id<DZMPhotoPageControllerDelegate> _Nullable)delegate;
+
+/**
+ 初始化(外部接收使用弱引用或不接收)
 
  @param photos 模型数组
  @param selectIndex 初始显示
